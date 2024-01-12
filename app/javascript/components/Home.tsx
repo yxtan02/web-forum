@@ -24,6 +24,8 @@ function Home({currUser}) {
     </div>
   ));
 
+  const noPosts = <h4>No posts yet.</h4>;
+
   return (
     <>
       <div className="container pt-5">
@@ -32,7 +34,7 @@ function Home({currUser}) {
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h1 className="h4 text-dark text-opacity-50">Latest Posts</h1>
             </div>
-            <div>{allPosts}</div>
+            <div>{posts.length > 0 ? allPosts : noPosts}</div>
           </div>
         </div>
       </div>

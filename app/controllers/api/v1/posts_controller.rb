@@ -1,5 +1,6 @@
 class Api::V1::PostsController < ApplicationController
   before_action :find_post, only: [:show, :update, :destroy]
+  before_action :set_current_user, only: [:create]
 
   def index
     post = Post.all.order(created_at: :desc)
@@ -7,7 +8,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
-    post = Post.create!(post_params)
+    post = @current_user.posts.create!(post_params)
     if post
       render json: post
     else
@@ -16,7 +17,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def show
-    render json: @post
+    render json: @post, include: :user
   end
 
   def update
@@ -39,6 +40,12 @@ class Api::V1::PostsController < ApplicationController
 
     def find_post
       @post = Post.find(params[:id])
+    end
+
+    def set_current_user
+      if session[:user_id]
+        @current_user = User.find(session[:user_id])
+      end
     end
 
 end

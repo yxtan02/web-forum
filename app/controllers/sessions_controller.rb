@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  include CurrentUserConcern
+  before_action :set_current_user
 
   def create
     user = User.find_by(username: params["user"]["username"]).try(:authenticate, params["user"]["password"])
@@ -36,4 +36,11 @@ class SessionsController < ApplicationController
       logged_out: true
     }
   end
+
+  private
+    def set_current_user
+      if session[:user_id]
+        @current_user = User.find(session[:user_id])
+      end
+    end
 end

@@ -5,6 +5,7 @@ function Post() {
   const params = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState({} as any);
+  const [author, setAuthor] = useState({} as any);
 
   useEffect(() => {
       const url = `/api/v1/show/${params.id}`;
@@ -15,7 +16,10 @@ function Post() {
           }
           throw new Error("Network Error");
         })
-        .then((response) => setPost(response))
+        .then((response) => {
+          setPost(response);
+          setAuthor(response.user);
+        })
         .catch((error) => console.error(error));
   }, [params.id]);
 
@@ -41,7 +45,7 @@ function Post() {
       .then(() => navigate("/"))
       .catch((error) => console.error(error));
   };
-    
+
   return (
     <>
       <div className="container pt-5">
@@ -53,6 +57,7 @@ function Post() {
             </div>
           </div>
           <div className="col-9">
+            <p className="lead">Posted by: {author.username}</p>
             <p className="pt-4 pb-4">{post.description}</p>
             <Link to={`/post/${params.id}/edit`} className="btn btn-warning me-2">Edit Post</Link>
             <button type="button" className="btn btn-danger" onClick={deletePost}>Delete Post</button>
