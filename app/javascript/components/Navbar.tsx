@@ -8,17 +8,14 @@ import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
-import { grey } from '@mui/material/colors';
-
 import { useNavigate } from 'react-router-dom';
+import Divider from '@mui/material/Divider';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Logout from '@mui/icons-material/Logout';
 
-const settings = ['Logout'];
-
-function Navbar({currUser}) {
+function Navbar({currUser, handleLogout}) {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();
 
@@ -41,15 +38,12 @@ function Navbar({currUser}) {
               New Post
             </Button>
             
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, mr: 24 }}>
-                  <Avatar src="/broken-image.jpg" />
-                </IconButton>
-              </Tooltip>
+            <Box sx={{ flexGrow: 0, mr:24 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0}}>
+                  <Avatar />
+              </IconButton>
               <Menu
                 sx={{ mt: '45px', ml: 3 }}
-                id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
                   vertical: 'top',
@@ -63,11 +57,17 @@ function Navbar({currUser}) {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
-                ))}
+                <MenuItem disabled>
+                  <Avatar sx={{width: 32, height: 32, ml: -0.5, mr: 1 }} />
+                  {currUser.user.username}
+                </MenuItem>
+                <Divider style={{ background: "black" }}/>
+                <MenuItem onClick={() => { navigate("/"); handleLogout();}}>
+                  <ListItemIcon>
+                    <Logout fontSize="small" />
+                  </ListItemIcon>
+                  Logout
+                </MenuItem>
               </Menu>
             </Box>
           </>;
@@ -87,6 +87,11 @@ function Navbar({currUser}) {
             >
               Login
             </Button>
+            <Menu
+                anchorEl={anchorElUser}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              ></Menu>
            </>;
   }
 
@@ -114,9 +119,8 @@ function Navbar({currUser}) {
             Forum
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          </Box>
-
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
+              
           {menu}
           
         </Toolbar>

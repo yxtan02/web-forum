@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Alert from '@mui/material/Alert';
 
-function Login({handleLogin, loggedIn}) {
+function Login({ handleLogin }) {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const[user, setUser] = useState({username: "", password: ""});

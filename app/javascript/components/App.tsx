@@ -68,17 +68,14 @@ function App() {
   return(
     <>
       <Router>
-        <header><NavBar currUser={currUser}/></header>
+        <header><NavBar currUser={currUser} handleLogout={handleLogout}/></header>
         <Routes>
           <Route path="/" element={<Home currUser={currUser}/>} />
           <Route path="/post" element={<NewPost />} />
           <Route path="/post/:id" element={<Post />} />
           <Route path="/post/:id/edit" element={<EditPost />} />
-          <Route path="/signup" element={<Signup 
-                                         handleLogin={handleLogin}
-                                         loggedIn={currUser.loggedIn} />} />
-          <Route path="/login" element={<Login handleLogin={handleLogin}
-                                         loggedIn={currUser.loggedIn}/>} />
+          <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         </Routes>
       </Router>
     </>
