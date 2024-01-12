@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const EditPost = () => {
+function EditPost() {
     const params = useParams();
     const navigate = useNavigate();
     const [post, setPost] = useState({} as any);
@@ -24,7 +24,7 @@ const EditPost = () => {
         .catch((error) => console.error(error));
     }, [params.id]);
     
-    const onSubmit = (event) => {
+    function onSubmit(event) {
         event.preventDefault();
         
         const url = `/api/v1/update/${params.id}`;
@@ -77,8 +77,8 @@ const EditPost = () => {
                 <div className="mb-3">
                   <label htmlFor="description" className="form-label h5">Description</label>
                   <textarea
-                    id="description"
                     name="description"
+                    id="description"
                     rows = {5}
                     value={post.description}
                     required

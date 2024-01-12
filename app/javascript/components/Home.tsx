@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Home() {
-
+function Home({currUser}) {
   const [posts, setPosts] = useState([] as any[]);
 
   useEffect(() => {
@@ -32,7 +31,6 @@ function Home() {
           <div className="col-9">
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h1 className="h4 text-dark text-opacity-50">Latest Posts</h1>
-              <Link to="/post" className="btn btn-primary">Create New Post</Link>
             </div>
             <div>{allPosts}</div>
           </div>
