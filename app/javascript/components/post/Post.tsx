@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import NewComment from "../NewComment";
 
 function Post() {
   const params = useParams();
@@ -57,10 +58,15 @@ function Post() {
             </div>
           </div>
           <div className="col-9">
-            <p className="lead">Posted by: {author.username}</p>
+            <div className="d-flex justify-content-between align-items-center">
+              <p className="lead">Posted by: {author.username}</p>
+              <div>
+                <Link to={`/post/${params.id}/edit`} className="btn btn-outline-primary btn-sm me-2">Edit Post</Link>
+                <button type="button" className="btn btn-outline-danger btn-sm me-3" onClick={deletePost}>Delete Post</button>
+              </div>
+            </div>
             <p className="pt-4 pb-4">{post.description}</p>
-            <Link to={`/post/${params.id}/edit`} className="btn btn-warning me-2">Edit Post</Link>
-            <button type="button" className="btn btn-danger" onClick={deletePost}>Delete Post</button>
+            <NewComment />
           </div>
         </div>
       </div>

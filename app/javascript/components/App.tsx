@@ -7,6 +7,7 @@ import EditPost from "./post/EditPost";
 import NavBar from "./Navbar"
 import Signup from "./auth/Signup";
 import Login from "./auth/Login";
+import NewComment from "./comment/NewComment";
 
 function App() {
   const [currUser, setCurrUser]= useState({loggedIn: false, user: {}});
@@ -76,6 +77,7 @@ function App() {
           <Route path="/post/:id/edit" element={<EditPost />} />
           <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/test" element={<NewComment />} />
         </Routes>
       </Router>
     </>
