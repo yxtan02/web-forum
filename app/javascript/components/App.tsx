@@ -71,13 +71,12 @@ function App() {
       <Router>
         <header><NavBar currUser={currUser} handleLogout={handleLogout}/></header>
         <Routes>
-          <Route path="/" element={<Home currUser={currUser}/>} />
+          <Route path="/" element={<Home currUser={currUser} />} />
           <Route path="/post" element={<NewPost />} />
-          <Route path="/post/:id" element={<Post />} />
+          <Route path="/post/:id" element={<Post currUser={currUser} />} />
           <Route path="/post/:id/edit" element={<EditPost />} />
           <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-          <Route path="/test" element={<NewComment />} />
         </Routes>
       </Router>
     </>

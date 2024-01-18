@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import NewComment from "../NewComment";
+import NewComment from "../comment/NewComment";
 
-function Post() {
+function Post({currUser}) {
   const params = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState({} as any);
-  const [author, setAuthor] = useState({} as any);
+  const [comments, setComments] = useState([] as any);
 
   useEffect(() => {
       const url = `/api/v1/show/${params.id}`;
@@ -19,7 +19,7 @@ function Post() {
         })
         .then((response) => {
           setPost(response);
-          setAuthor(response.user);
+          setComments(response.comments);
         })
         .catch((error) => console.error(error));
   }, [params.id]);
@@ -47,6 +47,19 @@ function Post() {
       .catch((error) => console.error(error));
   };
 
+  const editDeleteButtons =
+    <>
+      <Link to={`/post/${params.id}/edit`} className="btn btn-outline-primary btn-sm me-2">Edit Post</Link>
+      <button type="button" className="btn btn-outline-danger btn-sm me-3" onClick={deletePost}>Delete Post</button>
+    </>
+  
+  const allComments = comments.map((comment, index) => (
+    <div key={index} className="mb-3 p-1 align-items-center">
+      <h6>{comment?.user?.username}</h6>
+      <p className="text-justify comment-text mb-0">{comment.content}</p>
+    </div>
+  ));
+
   return (
     <>
       <div className="container pt-5">
@@ -59,14 +72,12 @@ function Post() {
           </div>
           <div className="col-9">
             <div className="d-flex justify-content-between align-items-center">
-              <p className="lead">Posted by: {author.username}</p>
-              <div>
-                <Link to={`/post/${params.id}/edit`} className="btn btn-outline-primary btn-sm me-2">Edit Post</Link>
-                <button type="button" className="btn btn-outline-danger btn-sm me-3" onClick={deletePost}>Delete Post</button>
-              </div>
+              <p className="lead">Posted by: {post?.user?.username}</p>
+              <div>{(post?.user?.username == currUser?.user?.username) ? editDeleteButtons : <></>}</div>
             </div>
-            <p className="pt-4 pb-4">{post.description}</p>
-            <NewComment />
+            <p className="pt-3 pb-4">{post.description}</p>
+            {currUser.loggedIn ? <NewComment /> : <h5 className="mb-3">Comments:</h5>}
+            <div>{allComments}</div>
           </div>
         </div>
       </div>
