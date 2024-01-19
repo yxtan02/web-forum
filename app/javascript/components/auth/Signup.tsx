@@ -60,12 +60,11 @@ function Signup({ handleLogin }) {
                 </div>
                   
                 <div className="mb-3">
-                  <label htmlFor="password" className="form-label h5">Password</label>
+                  <label htmlFor="password" className="form-label h5">Password (optional)</label>
                   <input
                     type='password'
                     name="password"
                     id="password"
-                    required
                     className="form-control"
                     onChange={(event) => setUser({...user, password: event.target.value})}
                   />

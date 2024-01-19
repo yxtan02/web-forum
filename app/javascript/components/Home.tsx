@@ -19,7 +19,10 @@ function Home({currUser}) {
 
   const allPosts = posts.map((post, index) => (
     <div key={index} className="d-flex justify-content-between align-items-center shadow p-3 mb-3 bg-body rounded">
-      <h2 className="h6 me-5">{post.title}</h2>
+      <div className="d-flex" style={{gap: 175}}>
+        <h2 className="h6 me-5 align-items-center">{post.title}</h2>
+        <span className="badge text-bg-secondary mt-1" style={{height: 23}}>{post.category}</span>
+      </div>
       <Link to={`/post/${post.id}`} className="btn btn-info text-nowrap">View Post</Link>
     </div>
   ));

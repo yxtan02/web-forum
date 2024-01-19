@@ -88,6 +88,7 @@ function Navbar({currUser, handleLogout}) {
               Login
             </Button>
             <Menu
+                style={{opacity: 0}}
                 anchorEl={anchorElUser}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}

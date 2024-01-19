@@ -22,7 +22,7 @@ function Login({ handleLogin }) {
 
     fetch(url, options)
       .then((response) => {
-        if (response.ok) {
+        if (response.status === 200) {
           return response.json();
         }
         throw new Error("Server Error");
@@ -60,12 +60,11 @@ function Login({ handleLogin }) {
                 </div>
                   
                 <div className="mb-3">
-                  <label htmlFor="password" className="form-label h5">Password</label>
+                  <label htmlFor="password" className="form-label h5">Password (optional)</label>
                   <input
                     type='password'
                     name="password"
                     id="password"
-                    required
                     className="form-control"
                     onChange={(event) => setUser({...user, password: event.target.value})}
                   />

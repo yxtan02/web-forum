@@ -71,8 +71,11 @@ function Post({currUser}) {
             </div>
           </div>
           <div className="col-9">
-            <div className="d-flex justify-content-between align-items-center">
-              <p className="lead">Posted by: {post?.user?.username}</p>
+            <div className="d-flex justify-content-between">
+              <div className="d-flex" style={{gap: 30}}>
+                <p className="lead align-items-center" >Posted by: {post?.user?.username}</p>
+                <span className="badge text-bg-secondary mt-1" style={{height: 23}}>{post.category}</span>
+              </div>
               <div>{(post?.user?.username == currUser?.user?.username) ? editDeleteButtons : <></>}</div>
             </div>
             <p className="pt-3 pb-4">{post.description}</p>

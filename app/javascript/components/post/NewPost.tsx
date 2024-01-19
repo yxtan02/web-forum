@@ -5,6 +5,7 @@ function NewPost() {
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
     
     function onSubmit(event) {
         event.preventDefault();
@@ -18,7 +19,7 @@ function NewPost() {
             "X-CSRF-Token": csrfToken,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({title, description}),
+          body: JSON.stringify({title, description, category}),
         };
 
         fetch(url, options)
@@ -52,6 +53,18 @@ function NewPost() {
                     required
                     className="form-control"
                     onChange={(event) => setTitle(event.target.value)}
+                  />
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="category" className="form-label h5">Category</label>
+                  <input
+                    type="text"
+                    name="category"
+                    id="category"
+                    required
+                    className="form-control"
+                    onChange={(event) => setCategory(event.target.value)}
                   />
                 </div>
                   

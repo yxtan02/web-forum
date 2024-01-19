@@ -7,7 +7,6 @@ import EditPost from "./post/EditPost";
 import NavBar from "./Navbar"
 import Signup from "./auth/Signup";
 import Login from "./auth/Login";
-import NewComment from "./comment/NewComment";
 
 function App() {
   const [currUser, setCurrUser]= useState({loggedIn: false, user: {}});
