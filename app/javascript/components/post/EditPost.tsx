@@ -7,7 +7,6 @@ function EditPost() {
     const [tempPost, setTempPost] = useState({} as any);
     const [changed, setChanged] = useState(false);
 
-    console.log(tempPost)
     useEffect(() => {
       const url = `/api/v1/show/${params.id}`;
       fetch(url)

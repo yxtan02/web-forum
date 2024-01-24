@@ -5,7 +5,7 @@ class Api::V1::CommentsController < ApplicationController
   
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create!(content: params["content"], user_id: @current_user.id)
+    @comment = @post.comments.create!(content: params[:content], user_id: @current_user.id)
     if @comment.save
       render json: @comment
     else
