@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get '/show/:id', to:'posts#show'
       put '/update/:id', to: 'posts#update'
       delete '/destroy/:id', to: 'posts#destroy'
+      get 'posts/filter/:category', to: 'posts#filter'
       resources :posts do
         resources :comments
       end

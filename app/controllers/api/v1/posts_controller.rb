@@ -33,6 +33,11 @@ class Api::V1::PostsController < ApplicationController
     render json: { message: 'Post deleted!' }
   end
 
+  def filter
+    filtered_posts = Post.where(category: params[:category])
+    render json: filtered_posts
+  end
+
   private
     def post_params
         params.require(:post).permit(:title, :description, :category)

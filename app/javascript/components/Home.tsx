@@ -19,15 +19,16 @@ function Home({currUser}) {
 
   const allPosts = posts.map((post, index) => (
     <div key={index} className="d-flex justify-content-between align-items-center shadow p-3 mb-3 bg-body rounded">
-      <div className="d-flex" style={{gap: 175}}>
-        <h2 className="h6 me-5 align-items-center">{post.title}</h2>
+      <h2 className="h6 me-5 align-items-center">{post.title}</h2>
+      <div className="d-flex align-items-center" style={{gap: 35}}>
         <span className="badge text-bg-secondary mt-1" style={{height: 23}}>{post.category}</span>
+        <Link to={`/post/${post.id}`} className="btn btn-info text-nowrap">View Post</Link>
       </div>
-      <Link to={`/post/${post.id}`} className="btn btn-info text-nowrap">View Post</Link>
     </div>
   ));
 
   const noPosts = <h4>No posts yet.</h4>;
+  console.log(posts);
 
   return (
     <>

@@ -67,7 +67,7 @@ function Post({currUser}) {
           <div className="col-10 offset-md-1">
             <div className="row justify-content-start">
               <h1 className="h3 col-11">{post.title}</h1>
-              <Link to="/" className="btn-close col" aria-label="Close"></Link>
+              <button onClick={() => navigate(-1)} className="btn-close col"></button>
             </div>
           </div>
           <div className="col-9">

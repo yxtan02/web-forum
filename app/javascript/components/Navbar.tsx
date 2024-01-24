@@ -14,8 +14,11 @@ import { useNavigate } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Logout from '@mui/icons-material/Logout';
+import SearchIcon from "@mui/icons-material/Search";
+import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
 
-function Navbar({currUser, handleLogout}) {
+function Navbar({currUser, handleLogout }) {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();
 
@@ -26,6 +29,8 @@ function Navbar({currUser, handleLogout}) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const [category, setCategory] = React.useState("");
 
   let menu;
   if (currUser.loggedIn) {
@@ -119,6 +124,23 @@ function Navbar({currUser, handleLogout}) {
           >
             Forum
           </Typography>
+
+          <TextField
+            id="search-bar"
+            name="category"
+            className="text ms-4"
+            variant="outlined"
+            placeholder="Search..."
+            size="small"
+            required
+            onChange={(event) => setCategory(event.target.value)}
+            style={{width: 165}}
+          />
+          <Link to={`/posts/${category}`}>
+            <IconButton>
+              <SearchIcon style={{ fill: "black" }} />
+            </IconButton>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}></Box>
               
