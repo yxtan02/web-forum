@@ -1,8 +1,9 @@
 # Web Forum
 A responsive web app that allows users to discuss issues by creating threads and adding comments. <br />
 **Link to project:** https://mysite-zoa8.onrender.com
-****
+
 ![Homepage](images/homepage.png)
+
 
 ## Built With 💻
 | **Frontend**  | **Backend**     |
@@ -40,5 +41,6 @@ rails s
 
 6. Open http://localhost:3000 to view the app in the browser.
 7. You should see a page like this:
+
 ![Homepage](images/homepage.png)
 
