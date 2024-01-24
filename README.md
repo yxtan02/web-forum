@@ -43,3 +43,4 @@ rails s
 
 ![Homepage](images/homepage.png)
 
+Name: Tan Yi Xuan
