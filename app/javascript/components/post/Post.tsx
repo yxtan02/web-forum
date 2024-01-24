@@ -55,10 +55,48 @@ function Post({currUser}) {
   
   const allComments = comments.map((comment, index) => (
     <div key={index} className="mb-3 p-1 align-items-center">
-      <h6>{comment?.user?.username}</h6>
+      <div className="d-flex justify-content-between">
+        <h6>{comment?.user?.username}</h6>
+        <div>{(comment?.user?.username == currUser?.user?.username)
+               ? <>
+                   <Link to={`/comment/${comment.id}/edit`} className="btn btn-outline-primary btn-sm me-2">Edit</Link>
+                    <button type="button"
+                      className="btn btn-outline-danger btn-sm me-3"
+                       onClick={() => deleteComment(comment.id) }>
+                      Delete
+                    </button>
+                 </>
+               : <></>}
+          
+        </div>
+      </div>
       <p className="text-justify comment-text mb-0">{comment.content}</p>
     </div>
   ));
+
+  function deleteComment(commentId) {
+    const url = `/api/v1/posts/${params.id}/comments/${commentId}`;
+    console.log(url);
+    const csrfTokenElement = document.querySelector('meta[name="csrf-token"]') as HTMLMetaElement;
+    const csrfToken = csrfTokenElement.content;
+    const options = {
+      method: "DELETE",
+      headers: {
+        "X-CSRF-Token": csrfToken,
+        "Content-Type": "application/json",
+      },
+    }
+  
+    fetch(url, options)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error("Network Error");
+      })
+      .then(() => window.location.reload())
+      .catch((error) => console.error(error));
+  }
 
   return (
     <>
@@ -67,7 +105,7 @@ function Post({currUser}) {
           <div className="col-10 offset-md-1">
             <div className="row justify-content-start">
               <h1 className="h3 col-11">{post.title}</h1>
-              <button onClick={() => navigate(-1)} className="btn-close col"></button>
+              <button onClick={() => navigate("/")} className="btn-close col"></button>
             </div>
           </div>
           <div className="col-9">

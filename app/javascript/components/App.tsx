@@ -8,6 +8,7 @@ import NavBar from "./Navbar"
 import Signup from "./auth/Signup";
 import Login from "./auth/Login";
 import FilteredPosts from "./post/FilteredPosts";
+import EditComment from "./comment/EditComment";
 
 function App() {
   const [currUser, setCurrUser] = useState({loggedIn: false, user: {}});
@@ -78,6 +79,7 @@ function App() {
           <Route path="/signup" element={<Signup handleLogin={handleLogin} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} />} />
           <Route path="/posts/:category" element={<FilteredPosts />} />
+          <Route path="/comment/:id/edit" element={<EditComment />} />
         </Routes>
       </Router>
     </>

@@ -4,10 +4,10 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 function EditPost() {
     const params = useParams();
     const navigate = useNavigate();
-    const [post, setPost] = useState({} as any);
     const [tempPost, setTempPost] = useState({} as any);
     const [changed, setChanged] = useState(false);
 
+    console.log(tempPost)
     useEffect(() => {
       const url = `/api/v1/show/${params.id}`;
       fetch(url)
@@ -18,7 +18,6 @@ function EditPost() {
           throw new Error("Network Error");
         })
         .then((response) => {
-          setPost(response);
           setTempPost(response);
         })
         .catch((error) => console.error(error));
@@ -67,7 +66,7 @@ function EditPost() {
                     type="text"
                     name="title"
                     id="title"
-                    value={post.title}
+                    value={tempPost.title}
                     required
                     readOnly
                     className="form-control-plaintext"
@@ -80,12 +79,12 @@ function EditPost() {
                     name="description"
                     id="description"
                     rows = {5}
-                    value={post.description}
+                    value={tempPost.description}
                     required
                     className="form-control"
                     onChange={(event) => {
                       setChanged(true);
-                      setTempPost({...post, description: event.target.value});
+                      setTempPost({description: event.target.value});
                     }}
                   />
                 </div>

@@ -1,4 +1,5 @@
 class Api::V1::PostsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :find_post, only: [:show, :update, :destroy]
   before_action :set_current_user, only: [:create]
 

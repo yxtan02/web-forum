@@ -28,7 +28,6 @@ function Home({currUser}) {
   ));
 
   const noPosts = <h4>No posts yet.</h4>;
-  console.log(posts);
 
   return (
     <>
