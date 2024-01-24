@@ -1,16 +1,14 @@
-# Web Forum
+# Web Forum ![Forum](images/chat.png)
 A responsive web app that allows users to discuss issues by creating threads and adding comments. <br />
 **Link to project:** https://mysite-zoa8.onrender.com
 
-## Built With
-### Frontend
-- React
-- TypeScript
-- Bootstrap
-- Material UI
-### Backend
-- Ruby on Rails
-- PostgreSQL
+## Built With 💻
+### Frontend               |  ###Backend
+:-------------------------:|:-------------------------:
+- React                    | - Ruby on Rails
+- TypeScript               | - PostgreSQL
+- Bootstrap                
+- Material UI              
 
 ## Key Features ⭐
 - Perform CRUD operations on forum threads & comments
