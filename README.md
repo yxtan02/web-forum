@@ -46,7 +46,6 @@ rails s
 ![Homepage](images/homepage.png)
 
 ## How it works
-### Backend
 **Backend**
 - RESTful API was built using Ruby on Rails to handles CRUD operation on threads and comments through the Post and Comment controllers and models, which is integrated with a PostgreSQL database to store relevant data.
 
