@@ -2,12 +2,10 @@
 A responsive web app that allows users to discuss issues by creating threads and adding comments. <br />
 
 **Link to project:** https://mysite-zoa8.onrender.com
-<br />
-
-Name: Tan Yi Xuan
 
 ![Homepage](images/homepage.png)
 
+Name: Tan Yi Xuan
 
 ## Built With 💻
 | **Front-end**  | **Back-end**     |
