@@ -18,9 +18,8 @@ Name: Tan Yi Xuan
 
 ## Key Features ⭐
 - Perform CRUD operations on forum threads & comments
-- User authentication system using HTTP cookies and sessions
 - Search functionality to filter threads
-
+- User authentication system using HTTP cookies and sessions
 
 ## Installation and Usage 🛠️
 1. Clone this repository onto your local machine
