@@ -19,7 +19,14 @@ A responsive web app that allows users to discuss issues by creating threads and
 - Search functionality to filter threads
 - User authentication system using HTTP cookies and sessions
 
-## Installation and Usage 🛠️
+## Getting Started 🛠️
+### Prerequisites
+- Ruby 3.2.2
+- Rails 7.1.2
+- PostgreSQL
+- yarn
+
+### Installation and Usage 
 1. Clone this repository onto your local machine
 2. Navigate to the directory containing your cloned project
 3. Install the required dependencies by using: 
@@ -27,18 +34,26 @@ A responsive web app that allows users to discuss issues by creating threads and
 yarn install
 bundle install
 ```
-4. Initialise the database by using:
+4. Create PostgreSQL database:
+```bash
+sudo -u postgres psql
+CREATE USER yxtan WITH password '123456';
+ALTER USER yxtan WITH SUPERUSER;
+CREATE DATABASE yxtan WITH OWNER yxtan;
+```
+
+5. Initialise the database by using:
 ```bash
 rails db:create
 rails db:migrate
 rails db:seed
 ```
-5. Launch the app in development mode by using:
+6. Launch the app in development mode by using:
 ```bash
 rails s
 ```
-6. Open http://localhost:3000 to view the app in the browser
-7. You should see a page like this:
+7. Open http://localhost:3000 to view the app in the browser
+8. You should see a page like this:
 
 ![Homepage](images/homepage.png)
 
