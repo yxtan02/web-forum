@@ -38,7 +38,7 @@ rails db:seed
 ```
 5. Launch the app in development mode by using:
 ```bash
-rails s
+bin/dev
 ```
 6. Open http://localhost:3000 to view the app in the browser.
 7. You should see a page like this:
