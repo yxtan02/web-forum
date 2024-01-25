@@ -64,9 +64,11 @@ bin/dev
 **User Registration and Authentication**
 - Registrations controller was added to create new user accounts through the User model, which encrypts passwords through the bcrypt gem
 - Users can be registered and authenticated without passwords to facilitate ease of discussion
-- Session store initializer was added to configure cookies and CORS middleware was setup to handle external HTTP requests
+- Session store initializer was added to configure cookies
+- CORS middleware was setup to handle external HTTP requests
 - Sessions controller was added to create and destroy sessions, and to check whether a user is logged in
-- When a user logins successfully, a HTTP cookie will be sent to the client and cached. This cookie will then be subsequently used to authenticate and authorise API calls to the backend
+- When a user logins successfully, a HTTP cookie will be sent to the client and cached. This cookie will then be used for future backend API authentication and authorisation
+- On the frontend, the root React component, App, contains a current_user state which stores user information and the user's logged in status. This state is updated using the handleLogin and handleLogout functions. The current_user state will be passed to child components to authorise actions such as creating, editing and deleting posts & comments 
 
 **Deployment on Render**
 - The web app was deployed on Render, which is a platform as a service (PaaS)
