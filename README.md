@@ -66,7 +66,7 @@ bin/dev
 - Users can be registered and authenticated without passwords to facilitate ease of discussion
 - Session store initializer was added to configure cookies and CORS middleware was setup to handle external HTTP requests
 - Sessions controller was added to create and destroy sessions, and to check whether a user is logged in
-- When a user logins successfully, a HTTP cookie will be sent to the client and cached, which will then be subsequently used to authenticate and authorise API calls to the backend
+- When a user logins successfully, a HTTP cookie will be sent to the client and cached. This cookie will then be subsequently used to authenticate and authorise API calls to the backend
 
 **Deployment on Render**
 - The web app was deployed on Render, which is a platform as a service (PaaS)
