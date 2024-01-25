@@ -45,7 +45,7 @@ bin/dev
 
 ![Homepage](images/homepage.png)
 
-## How it works
+## How it works 💡
 **Backend**
 - RESTful API was built using Ruby on Rails to handle CRUD operation on threads & comments through the Post and Comment controllers and models, which is integrated with a PostgreSQL database to store the data.
 
@@ -70,7 +70,7 @@ bin/dev
 
 **Deployment on Render**
 
-## User Manual
+## User Manual 📖
 **To view a post:**
 - Scroll through the homepage and click “View Post” for the post which you would like to view
 
