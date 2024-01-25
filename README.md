@@ -51,7 +51,7 @@ bin/dev
 
 **Frontend**
 - React frontend was integrated with backend through API calls using Fetch
-- index.tsx file served as an entry point to render all React components which were bundled by ESBuild.
+- index.tsx file served as an entry point to render all React components which were bundled by esbuild.
 - App.tsx file was used to set up routing through the React router.
 - Typescript was used to introduce static typing to catch type-related errors during development
 - Styling was done using BootStrap CSS framework
