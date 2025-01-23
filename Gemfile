@@ -17,6 +17,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem 'seed_dump'
+gem "sassc-rails"
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
