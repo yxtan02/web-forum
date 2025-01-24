@@ -1,5 +1,5 @@
-# Web Forum (by Tan Yi Xuan)
-A responsive web app that allows users to discuss issues by creating threads and adding comments. <br />
+# ThreadTalk (by Tan Yi Xuan)
+A responsive web forum that allows users to discuss issues by creating threads and adding comments. <br />
 
 **Link to project:** [https://mysite-zoa8.onrender.com](https://mysite-3k0r.onrender.com)
 
